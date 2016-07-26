@@ -2,7 +2,7 @@ language: none
 
 build:
   ci:
-    - export IMAGE_NAME=ttrahan/box
+    - export IMAGE_NAME=manishas/box
     - ./build.sh
 
   post_ci:
@@ -10,21 +10,21 @@ build:
 
 integrations:
   hub:
-    - integrationName: ttrahan-dh
+    - integrationName: dh-manishas
       type: docker
       branches:
         only:
           - master
 
-  notifications:
-    - integrationName: trigger-box-pipeline
-      type: webhook
-      payload:
-        - resourceId=14498
-        - versionName=$BRANCH.$BUILD_NUMBER
-      branches:
-        only:
-          - master
-      on_success: always
-      on_failure: never
-      on_start: never
+#  notifications:
+#    - integrationName: trigger-box-pipeline
+#      type: webhook
+#      payload:
+#        - resourceId=14498
+#        - versionName=$BRANCH.$BUILD_NUMBER
+#      branches:
+#        only:
+#          - master
+#      on_success: always
+#      on_failure: never
+#      on_start: never
